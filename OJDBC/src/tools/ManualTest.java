@@ -58,7 +58,25 @@ public class ManualTest {
 //        System.out.println(new UserController().forgotPassUser("zzz"));
 //        System.out.println(new UserController().verficationUser("0","12"));
 //        System.out.println(new UserController().newPassUser(10, "abcd"));
-        
+
+//
+//
+//
+//  Departments
+//        System.out.println(new AccountController().loginAccount("test1", "1"));
+//        JavaMailUtil.sendMail("iqwalakmar102@gmail.com");
+//        System.out.println(new AccountController().addAccountSP("iqwal", "1", "admin satu", "085776094775", "iqwalakmar102@gmail.com"));
+//        System.out.println(new AccountController().addAccountSP("admin", "admin@123", "Iqwal Akmar", "085776094775", "iqwalakimaru@gmail.com")); //Berhasil
+//        System.out.println(new AccountController().addAccountSP("Aldihrds", "aldis321", "Aldi Herdiansyah", "0857760567", "aldi.hrd@gmail.com"));
+//        System.out.println(new AccountController().editAccountSP("iakmrs", "inipwnya", "Iqwalsx Akimarus", "08574292929", "Iqwaxkmr@gmail.com"));
+//        System.out.println(new AccountController().removeAccount("admin"));
+//        System.out.println(new AccountController().removeAccount("iqwal"));
+//        System.out.println(new AccountController().removeAccount("deolahara"));
+//        System.out.println(new AccountController().removeAccount("deolaharas"));
+//        List<Account> data = new AccountController().getDataAccounts();
+//         for (Account account : data) {
+//            System.out.println(account.getAcc_username()+ " " + account.getAcc_password()+" "+account.getAcc_phone()+" "+account.getAcc_email());
+//         }
     }
 }
     
