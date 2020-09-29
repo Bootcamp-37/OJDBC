@@ -19,9 +19,9 @@ public class MainView extends javax.swing.JFrame {
      */
     public MainView() {
         initComponents();
-        LoginFikriView loginView = new LoginFikriView();
-        loginView.show();
-        dspMain.add(loginView);
+//        LoginFikriView loginView = new LoginFikriView();
+//        loginView.show();
+//        dspMain.add(loginView);
     }
 
     /**
@@ -47,7 +47,9 @@ public class MainView extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         mnJob = new javax.swing.JMenuItem();
         mnRegion = new javax.swing.JMenuItem();
-        mnLogin = new javax.swing.JMenuItem();
+        mnCountry = new javax.swing.JMenuItem();
+        mnDepartment = new javax.swing.JMenuItem();
+        mnLocation = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         jMenu1.setText("File");
@@ -74,11 +76,11 @@ public class MainView extends javax.swing.JFrame {
         dspMain.setLayout(dspMainLayout);
         dspMainLayout.setHorizontalGroup(
             dspMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 689, Short.MAX_VALUE)
+            .addGap(0, 932, Short.MAX_VALUE)
         );
         dspMainLayout.setVerticalGroup(
             dspMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 411, Short.MAX_VALUE)
+            .addGap(0, 561, Short.MAX_VALUE)
         );
 
         jMenu3.setText("File");
@@ -101,14 +103,32 @@ public class MainView extends javax.swing.JFrame {
         });
         jMenu3.add(mnRegion);
 
-        mnLogin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        mnLogin.setText("Login");
-        mnLogin.addActionListener(new java.awt.event.ActionListener() {
+        mnCountry.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        mnCountry.setText("Country");
+        mnCountry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnLoginActionPerformed(evt);
+                mnCountryActionPerformed(evt);
             }
         });
-        jMenu3.add(mnLogin);
+        jMenu3.add(mnCountry);
+
+        mnDepartment.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        mnDepartment.setText("Department");
+        mnDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnDepartmentActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnDepartment);
+
+        mnLocation.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        mnLocation.setText("Location");
+        mnLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnLocationActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnLocation);
 
         jMenuBar2.add(jMenu3);
 
@@ -121,15 +141,17 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dspMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dspMain)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dspMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dspMain)
+                .addContainerGap())
         );
 
         pack();
@@ -147,11 +169,21 @@ public class MainView extends javax.swing.JFrame {
         dspMain.add(regionView);
     }//GEN-LAST:event_mnRegionActionPerformed
 
-    private void mnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnLoginActionPerformed
-        LoginFikriView loginView = new LoginFikriView();
-        loginView.show();
-        dspMain.add(loginView);
-    }//GEN-LAST:event_mnLoginActionPerformed
+    private void mnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCountryActionPerformed
+        CountryView view = new  CountryView();
+        view.show();
+        dspMain.add(view);
+    }//GEN-LAST:event_mnCountryActionPerformed
+
+    private void mnLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnLocationActionPerformed
+        LocationView view = new LocationView();
+        view.show();
+        dspMain.add(view);
+    }//GEN-LAST:event_mnLocationActionPerformed
+
+    private void mnDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnDepartmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnDepartmentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,8 +243,10 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuItem mnCountry;
+    private javax.swing.JMenuItem mnDepartment;
     private javax.swing.JMenuItem mnJob;
-    private javax.swing.JMenuItem mnLogin;
+    private javax.swing.JMenuItem mnLocation;
     private javax.swing.JMenuItem mnRegion;
     // End of variables declaration//GEN-END:variables
 }

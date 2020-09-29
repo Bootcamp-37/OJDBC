@@ -8,6 +8,7 @@ package controllers;
 import daos.CountryDAO;
 import java.util.List;
 import models.Country;
+import models.User;
 import tools.Koneksi;
 
 
@@ -23,19 +24,6 @@ public class CountryController {
     public CountryController() {
         this.countryDAO = new CountryDAO(new Koneksi().getConnection());
     }
-    
-    
-public Account getByTokenAccountController(String token){
-         return this.countryDAO.findByTokenAccount(token);
-     }
-public String getByUsernameAccountController(String username){
-   
-    return this.countryDAO.findByUsernameAccount(username);
-     }
-public String getTokenByUsernameAccountController(String username){
-   
-    return this.countryDAO.findTokenByUsernameAccount(username);
-     }
 
 /**
  * This method is called when you want to show all the data in countries table,
@@ -66,6 +54,7 @@ public String getTokenByUsernameAccountController(String username){
         Country country1 = new Country(id, name, regionId);
         return countryDAO.insertUpdateCountrySP(country1,true) ? "Data has been saved" : "Failed to save data";
     }
+      
       public String updateCountrySP(String id, String name, String region) {
         int regionId = Integer.parseInt(region);
         Country country1 = new Country(id, name, regionId);
@@ -79,11 +68,18 @@ public String getTokenByUsernameAccountController(String username){
  * @return method insertUpdateCountry from countryDAO
  * set the parameter to false, to call update method
  */
-    public String updateCountryController(String id, String name, String region) {
+    public String updateCountryControllerSP(String id, String name, String region) {
         int regionId = Integer.parseInt(region);
 
         Country country1 = new Country(id, name, regionId);
         return countryDAO.insertUpdateCountrySP(country1,false) ?  "Data has been edited" : "Failed to edit data";
+    }
+    
+    public String updateCountryController(String id, String name, String region) {
+        int regionId = Integer.parseInt(region);
+
+        Country country1 = new Country(id, name, regionId);
+        return countryDAO.insertUpdateCountry(country1,false) ?  "Data has been edited" : "Failed to edit data";
     }
 /**
  * This method is called when you want to search data,
