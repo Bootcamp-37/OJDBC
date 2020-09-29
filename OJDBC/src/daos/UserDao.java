@@ -7,6 +7,7 @@ package daos;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,22 +31,19 @@ public class UserDao {
     }
     
     public boolean loginUser (User user){
-        User temp = new User();
-        String query = "{ call SP_LoginUser(?,?)}";
-        String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(10));
+        String query = "SELECT * FROM users WHERE username = ?";
         try {
-            CallableStatement cs = this.connection.prepareCall(query);
-            cs.registerOutParameter(1,  OracleTypes.CURSOR);
-            cs.setString(2, user.getUsername());
-            cs.execute();
-            ResultSet resultSet = (ResultSet)cs.getObject(1);
+            PreparedStatement ps = this.connection.prepareStatement(query);
+            ps.setString(1,user.getUsername());
+            ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {                
-                temp.setPassword(resultSet.getString(3));
-            }
-            if (BCrypt.checkpw(user.getPassword(), temp.getPassword())) {
+                User p = new User();
+                p.setPassword(resultSet.getString(3));
+                if (BCrypt.checkpw(user.getPassword(), p.getPassword())){
                 return true;
-            }
-            return false;
+                }
+                
+              }
         } catch (Exception e) {
             e.printStackTrace();
         }

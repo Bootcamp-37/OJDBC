@@ -13,15 +13,15 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class MainView extends javax.swing.JFrame {
-
+    private String prevView;
     /**
      * Creates new form MainView
      */
     public MainView() {
         initComponents();
-//        LoginFikriView loginView = new LoginFikriView();
-//        loginView.show();
-//        dspMain.add(loginView);
+        LoginView loginView = new LoginView();
+        loginView.show();
+        dspMain.add(loginView);
     }
 
     /**
@@ -76,11 +76,11 @@ public class MainView extends javax.swing.JFrame {
         dspMain.setLayout(dspMainLayout);
         dspMainLayout.setHorizontalGroup(
             dspMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 932, Short.MAX_VALUE)
+            .addGap(0, 942, Short.MAX_VALUE)
         );
         dspMainLayout.setVerticalGroup(
             dspMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 561, Short.MAX_VALUE)
+            .addGap(0, 572, Short.MAX_VALUE)
         );
 
         jMenu3.setText("File");
@@ -142,14 +142,12 @@ public class MainView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(dspMain)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(dspMain)
                 .addContainerGap())
         );
@@ -182,7 +180,9 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_mnLocationActionPerformed
 
     private void mnDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnDepartmentActionPerformed
-        // TODO add your handling code here:
+        DepartmentsView view = new DepartmentsView();
+        view.show();
+        dspMain.add(view);
     }//GEN-LAST:event_mnDepartmentActionPerformed
 
     /**

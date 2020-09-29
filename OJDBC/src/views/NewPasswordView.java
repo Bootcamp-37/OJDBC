@@ -101,7 +101,7 @@ public class NewPasswordView extends javax.swing.JInternalFrame {
         if (newPass.equals(conPass)) {
             String msg = this.userController.newPassUser(id, newPass);
             JOptionPane.showMessageDialog(this, msg);
-            LoginFikriView login = new LoginFikriView();
+            LoginView login = new LoginView();
             login.show();
             this.getDesktopPane().add(login);
             this.dispose();

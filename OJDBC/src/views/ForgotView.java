@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class ForgotViewFikri extends javax.swing.JInternalFrame {
+public class ForgotView extends javax.swing.JInternalFrame {
     private UserController userController;
     public javax.swing.JMenuItem mnJob;
     public javax.swing.JMenuItem mnRegion;
@@ -21,11 +21,11 @@ public class ForgotViewFikri extends javax.swing.JInternalFrame {
     /**
      * Creates new form ForgotViewFikri
      */
-    public ForgotViewFikri() {
+    public ForgotView() {
         initComponents();
         this.userController = new UserController();
     }
-    public ForgotViewFikri(JMenuItem mnJob, JMenuItem mnRegion) {
+    public ForgotView(JMenuItem mnJob, JMenuItem mnRegion) {
         initComponents();
         this.userController = new UserController();
         this.mnJob = mnJob;
@@ -101,7 +101,7 @@ public class ForgotViewFikri extends javax.swing.JInternalFrame {
         int id = this.userController.forgotPassUser(username);
         if (id != 0) {
             txtUsername.setText("");
-            VerificationViewFikri vvf = new VerificationViewFikri(username,id,true,mnJob, mnRegion);
+            VerificationView vvf = new VerificationView(username,id,true,mnJob, mnRegion);
             vvf.show();
             this.getDesktopPane().add(vvf);
             this.dispose();
